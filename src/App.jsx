@@ -1,15 +1,21 @@
+import { Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import Header from "./component/Header";
+import Description from "./Description";
+
 function App() {
-  async function handleAllProgram() {
-    try {
-      const response = await fetch("https://fakestoreapi.com/products");
-      const data = await response.json();
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  handleAllProgram();
-  return <div>App</div>;
+  return (
+    <div>
+      <div>
+        <Header />
+      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/product/" element={<Home />} />
+        <Route path="/product/:id" element={<Description />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
